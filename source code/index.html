@@ -2,6 +2,7 @@
     <head>
         <title>web based online discussion forum</title>
         <link rel="stylesheet" href="style.css">
+        
     </head>
     <body>
         <div class="hero">
@@ -12,19 +13,21 @@
                     <button type="button" class="toggle-btn"onclick="register()">Register</button>
                 </div>
                 <div class="social-icons">
-                    <img src="facebook.png">
-                    <img src="twitter.png">
-                    <img src="google.png">
+                    <img src="images/facebook.png">
+                    <img src="images/twitter.png">
+                    <img src="images/google.png">
                 </div>
                 <form id="login" class="input-group">
-                    <input type="text" class="input-field" placeholder="User Name" required>
-                    <input type="text" class="input-field" placeholder="Enter Password" required>
+                    <input type="text" class="input-field" placeholder="Email" id="email" required>
+                    <input type="text" class="input-field" placeholder="Enter Password" id="Password" required>
                     <input type="checkbox" class="chechbox"><span>Remember Password</span> 
-                    <button type="submit" class="submit-btn">Log in</button>
+                    <button type="submit" class="submit-btn"onclick="auth()">Login</button>
+                    
 
                 </form>
+
                 <form id="register" class="input-group">
-                    <input type="text" class="input-field" placeholder="User Id" required>
+                    <input type="text" class="input-field" placeholder="User Name" required>
                     <input type="email" class="input-field" placeholder="Email Id" required>
                     <input type="text" class="input-field" placeholder="Enter Password" required>
                     <input type="checkbox" class="chechbox"><span>I agree to the terms and conditions</span> 
@@ -38,6 +41,7 @@
             var x = document.getElementById("login");
             var y = document.getElementById("register");
             var z = document.getElementById("btn");
+            
 
             function register(){
                 x.style.left="-400px";
@@ -49,7 +53,23 @@
                 y.style.left="450px";
                 z.style.left="0";
             }
+            function auth(){
+                var email = document.getElementById("email").value;
+                var Password = document.getElementById("Password").value;
+
+                if(email=="admin@gmail.com" && Password=="admin" ){
+                    window.location.assign("home.html");
+                    alert("Login successfull ");
+                    
+                }
+                else{
+                    alert("Invalid username or password");
+                    return;
+                }
+            }     
+
         </script>
+
         
     </body>
 </html>        
